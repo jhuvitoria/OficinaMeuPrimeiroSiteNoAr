@@ -11,143 +11,182 @@
 </head>
 
 <body>
+    <!--
+        Cada <section class="slide"> é uma tela. Os atributos data-inicio e data-fim
+        (em minutos, de 0 a 120) registram o horário de cada tela no mapa de 120 min
+        da Frente 3. O cronômetro do rodapé mostra o tempo decorrido da oficina.
+        Os textos e códigos seguem o Micro-Roteiro do Curso 1 e o starter-kit-snct.zip.
+    -->
     <main id="telas">
-        <!-- TELA 1 -->
-        <section class="slide ativo" aria-label="Tela 1 de 8">
-            <div><span class="selo-bloco selo-acolhida"><i class="bi bi-rocket-takeoff" aria-hidden="true"></i> TELA 1 DE 8 ·</span></div>
-            <h1 class="display-4 fw-bold mt-3">Meu Primeiro Site no Ar em 120 Minutos</h1>
-            <p class="text-info fs-3">IFSC Câmpus Garopaba — Semana Nacional de Ciência e Tecnologia</p>
-            <div class="p-4 mt-3 rounded-4 bg-dark border border-success">
-                <strong>Meta de hoje:</strong> você vai sair deste laboratório com o seu próprio site
-                publicado na internet e abrindo no celular via QR Code!
-            </div>
-        </section>
 
-        <!-- TELA 2 -->
-        <section class="slide" aria-label="Tela 2 de 8">
-            <div><span class="selo-bloco selo-moodle"><i class="bi bi-mortarboard" aria-hidden="true"></i> TELA 2 DE 8 ·</span></div>
-            <h2 class="display-5 fw-bold mt-3">Passo Inicial: Abra a Sala no Moodle IFSC</h2>
+        <!-- TELA 1 · 00–10 min · Acolhida -->
+        <section class="slide ativo" aria-label="Tela 1 de 8" data-inicio="0" data-fim="10">
+            <div><span class="selo-bloco selo-acolhida"><i class="bi bi-rocket-takeoff" aria-hidden="true"></i> TELA 1 DE 8 · ACOLHIDA · 00–10 MIN</span></div>
             <div class="row g-4 align-items-center mt-1">
                 <div class="col-lg-7">
-                    <pre class="codigo-telao">1. Acesse a sala da Oficina SNCT no Moodle do IFSC
-2. Chave de inscrição da turma: SNCT2026
-3. Na Seção 0, abra o Micro-Roteiro PDF
-4. Na Seção 1, clique em starter-kit-snct.zip</pre>
+                    <h1 class="display-4 fw-bold">Meu Primeiro Site no Ar em 120 Minutos</h1>
+                    <p class="subtitulo">IFSC Câmpus Garopaba — Semana Nacional de Ciência e Tecnologia</p>
+                    <div class="caixa-meta">
+                        <strong>Meta de hoje:</strong> você vai sair deste laboratório com o seu próprio site
+                        publicado na internet e abrindo no celular via QR Code!
+                    </div>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <img class="print-tela" src="img/print-moodle.png" alt="Print da sala do curso no Moodle">
+                    <img class="print-tela qr-grande" src="img/qr-site-modelo.png" data-rotulo="o QR Code do site modelo"
+                        alt="QR Code do site modelo publicado">
+                    <p class="legenda">Aponte a câmera do celular: este é o site que você vai publicar.</p>
                 </div>
             </div>
         </section>
 
-        <!-- TELA 3 -->
-        <section class="slide" aria-label="Tela 3 de 8">
-            <div><span class="selo-bloco selo-bloco1"><i class="bi bi-palette" aria-hidden="true"></i> TELA 3 DE 8 ·</span></div>
-            <h2 class="display-5 fw-bold mt-3">Personalizando Cores no arquivo css/estilo.css</h2>
+        <!-- TELA 2 · 10–15 min · Moodle -->
+        <section class="slide" aria-label="Tela 2 de 8" data-inicio="10" data-fim="15">
+            <div><span class="selo-bloco selo-moodle"><i class="bi bi-mortarboard" aria-hidden="true"></i> TELA 2 DE 8 · MOODLE · 10–15 MIN</span></div>
+            <h2 class="display-5 fw-bold mt-3">Passo Inicial: Abra a Sala do Curso 1 no Moodle IFSC</h2>
             <div class="row g-4 align-items-center mt-1">
                 <div class="col-lg-7">
-                    <pre class="codigo-telao">:root {
---cor-primaria: <mark>#2563eb</mark>; /* Troque pela sua cor favorita */
---cor-fundo: <mark>#eff6ff</mark>;
+                    <ol class="lista-passos">
+                        <li>Acesse a <strong>Sala do Curso 1</strong> no Moodle do IFSC.</li>
+                        <li>Chave de inscrição: <mark class="troque">SNCT2026</mark></li>
+                        <li>Na <strong>Seção 0</strong>, abra o Micro-Roteiro em PDF.</li>
+                    </ol>
+                    <p class="checkpoint"><strong>Checkpoint:</strong> a Sala do Curso 1 está aberta e você enxerga a Seção 1.</p>
+                </div>
+                <div class="col-lg-5 text-center">
+                    <img class="print-tela" src="img/print-moodle.png" data-rotulo="o print"
+                        alt="Print da Sala do Curso 1 no Moodle">
+                </div>
+            </div>
+        </section>
+
+        <!-- TELA 3 · 15–35 min · Bloco 1 -->
+        <section class="slide" aria-label="Tela 3 de 8" data-inicio="15" data-fim="35">
+            <div><span class="selo-bloco selo-bloco1"><i class="bi bi-palette" aria-hidden="true"></i> TELA 3 DE 8 · BLOCO 1 · 15–35 MIN</span></div>
+            <h2 class="display-5 fw-bold mt-3">Baixe o Starter Kit e personalize as cores</h2>
+            <div class="row g-4 align-items-start mt-1">
+                <div class="col-lg-7">
+                    <ol class="lista-passos">
+                        <li>No Moodle, <strong>Seção 1</strong>: clique em <mark class="troque">starter-kit-snct.zip</mark></li>
+                        <li>Extraia na <strong>Área de Trabalho</strong> e abra a pasta <code>starter-kit-snct</code> no <strong>VS Code</strong>.</li>
+                        <li>Abra <code>css/estilo.css</code> e troque o bloco <code>:root</code>:</li>
+                    </ol>
+                    <pre class="codigo-telao mt-3">:root {
+  /* BLOCO 1: Altere os codigos de cor abaixo para personalizar seu tema */
+  --cor-primaria: <mark>#16a34a</mark>;
+  --cor-fundo: <mark>#f0fdf4</mark>;
+  --cor-cartao: <mark>#ffffff</mark>;
+  --cor-texto: <mark>#1e293b</mark>;
 }</pre>
                     <p class="legenda"><mark class="troque">Amarelo</mark> = o que você troca.</p>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <img class="print-tela" src="img/print-cores.png" alt="Print do site com as cores trocadas">
+                    <img class="print-tela" src="img/print-cores.png" data-rotulo="o print"
+                        alt="Print do site com as cores trocadas">
                 </div>
             </div>
-            <p class="text-info fs-3 mt-3">Checkpoint: salve (Ctrl+S), abra o index.html no navegador e confira se as cores mudaram.</p>
+            <p class="checkpoint"><strong>Checkpoint:</strong> salve (Ctrl+S) e abra o <code>index.html</code> no navegador: as cores devem ter mudado.</p>
         </section>
 
-        <!-- TELA 4 -->
-        <section class="slide" aria-label="Tela 4 de 8">
-            <div><span class="selo-bloco selo-bloco2a"><i class="bi bi-card-text" aria-hidden="true"></i> TELA 4 DE 8 ·</span></div>
-            <h2 class="display-5 fw-bold mt-3">Edite os 3 cartões de destaques no index.html</h2>
+        <!-- TELA 4 · 35–55 min · Bloco 2 (2A) -->
+        <section class="slide" aria-label="Tela 4 de 8" data-inicio="35" data-fim="55">
+            <div><span class="selo-bloco selo-bloco2a"><i class="bi bi-card-text" aria-hidden="true"></i> TELA 4 DE 8 · BLOCO 2 · 35–55 MIN</span></div>
+            <h2 class="display-5 fw-bold mt-3">Seu nome e os 3 cartões de destaque no index.html</h2>
             <div class="row g-4 align-items-center mt-1">
                 <div class="col-lg-7">
-                    <pre class="codigo-telao">&lt;div class="card-destaque"&gt;
-  &lt;h3&gt;<mark>Meu destaque 1</mark>&lt;/h3&gt;
-  &lt;p&gt;<mark>Escreva aqui algo sobre você</mark>&lt;/p&gt;
-&lt;/div&gt;
-&lt;!-- Repita para os destaques 2 e 3 --&gt;</pre>
-                    <p class="legenda"><mark class="troque">Amarelo</mark> = o que você troca.</p>
+                    <p class="rotulo-codigo">Comentário <code>BLOCO 1</code> · nome e frase:</p>
+                    <pre class="codigo-telao">&lt;h1 id="nomePessoa"&gt;<mark>Seu Nome ou Nome do Negocio</mark>&lt;/h1&gt;
+&lt;p class="bio-texto"&gt;
+  <mark>Escreva aqui em uma frase o que voce faz, estuda ou oferece para a comunidade.</mark>
+&lt;/p&gt;</pre>
+                    <p class="rotulo-codigo">Comentário <code>BLOCO 2</code> · cada cartão (edite os 3):</p>
+                    <pre class="codigo-telao">&lt;article class="item-destaque"&gt;
+  &lt;h2&gt;<mark>Destaque 1</mark>&lt;/h2&gt;
+  &lt;p&gt;<mark>Descreva seu primeiro projeto, habilidade ou produto em destaque.</mark>&lt;/p&gt;
+&lt;/article&gt;</pre>
+                    <p class="legenda"><mark class="troque">Amarelo</mark> = o que você troca. Ex.: <em>Maria Silva - Doces Artesanais</em></p>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <img class="print-tela" src="img/print-cartoes.png" alt="Print dos 3 cartões de destaque no site">
+                    <img class="print-tela" src="img/print-cartoes.png" data-rotulo="o print"
+                        alt="Print do nome e dos 3 cartões de destaque no site">
                 </div>
             </div>
-            <p class="text-info fs-3 mt-3">Checkpoint: os 3 cartões aparecem com o seu texto.</p>
+            <p class="checkpoint"><strong>Checkpoint:</strong> salve e atualize a página (F5). Os 3 cartões mostram os seus textos, sem sobrar “Destaque 1”, “Destaque 2” ou “Destaque 3”.</p>
         </section>
 
-        <!-- TELA 5 -->
-        <section class="slide" aria-label="Tela 5 de 8">
-            <div><span class="selo-bloco selo-bloco2b"><i class="bi bi-whatsapp" aria-hidden="true"></i> TELA 5 DE 8 ·</span></div>
-            <h2 class="display-5 fw-bold mt-3">Configure o link direto de WhatsApp</h2>
+        <!-- TELA 5 · 55–70 min · Bloco 2B -->
+        <section class="slide" aria-label="Tela 5 de 8" data-inicio="55" data-fim="70">
+            <div><span class="selo-bloco selo-bloco2b"><i class="bi bi-whatsapp" aria-hidden="true"></i> TELA 5 DE 8 · BLOCO 2B · 55–70 MIN</span></div>
+            <h2 class="display-5 fw-bold mt-3">Configure o botão direto para o WhatsApp</h2>
             <div class="row g-4 align-items-center mt-1">
                 <div class="col-lg-7">
-                    <pre class="codigo-telao">&lt;a href="https://wa.me/<mark>5548999999999</mark>?text=<mark>Oi!</mark>"
-   class="btn btn-success"&gt;
-  Fale comigo no WhatsApp
+                    <p class="rotulo-codigo">Comentário <code>BLOCO 2B</code> no index.html:</p>
+                    <pre class="codigo-telao">&lt;a class="botao-whatsapp"
+   href="https://wa.me/<mark>5548999999999</mark>?text=Ola!%20Vi%20seu%20site%20na%20SNCT!"
+   target="_blank" rel="noopener"&gt;
+  Falar comigo no WhatsApp
 &lt;/a&gt;</pre>
-                    <p class="legenda"><mark class="troque">Amarelo</mark> = o que você troca.</p>
+                    <p class="legenda"><mark class="troque">Amarelo</mark> = o que você troca: <strong>55 + DDD + número</strong>, tudo junto, sem espaços, traços ou parênteses.</p>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <img class="print-tela" src="img/print-whatsapp.png" alt="Print do botão de WhatsApp abrindo a conversa">
+                    <img class="print-tela" src="img/print-whatsapp.png" data-rotulo="o print"
+                        alt="Print do botão de WhatsApp abrindo a conversa">
                 </div>
             </div>
-            <p class="text-info fs-3 mt-3">Formato: 55 + DDD + número, só dígitos. Clique e teste!</p>
+            <p class="checkpoint"><strong>Checkpoint:</strong> clique no botão verde no navegador. O WhatsApp deve abrir uma conversa com o número que você digitou e a mensagem pronta.</p>
         </section>
 
-        <!-- TELA 6 -->
-        <section class="slide" aria-label="Tela 6 de 8">
-            <div><span class="selo-bloco selo-bloco3"><i class="bi bi-github" aria-hidden="true"></i> TELA 6 DE 8 ·</span></div>
+        <!-- TELA 6 · 70–95 min · Bloco 3 -->
+        <section class="slide" aria-label="Tela 6 de 8" data-inicio="70" data-fim="95">
+            <div><span class="selo-bloco selo-bloco3"><i class="bi bi-github" aria-hidden="true"></i> TELA 6 DE 8 · BLOCO 3 · 70–95 MIN</span></div>
             <h2 class="display-5 fw-bold mt-3">Suba no GitHub e ative o GitHub Pages</h2>
             <div class="row g-4 align-items-center mt-1">
-                <div class="col-lg-7">
-                    <pre class="codigo-telao">1. github.com → New repository → "<mark>meu-site</mark>"
-   (visibilidade: <mark>Public</mark>, senão o Pages não funciona)
-2. Add file → Upload files → arraste o <mark>CONTEÚDO</mark> da pasta
-   (index.html, css, img...), não a pasta em si
-3. Commit changes
-4. Settings → Pages → Branch: main → Save
-5. Aguarde 1–2 min e abra o link gerado</pre>
-                    <p class="legenda"><mark class="troque">Amarelo</mark> = atenção neste ponto.</p>
+                <div class="col-lg-8">
+                    <ol class="lista-passos">
+                        <li>Entre em <strong>github.com</strong> e faça login. Sem o código 2FA? Peça ao monitor uma <strong>conta de contingência</strong>.</li>
+                        <li><strong>New</strong> → Repository name: <mark class="troque">meu-primeiro-site</mark> · Visibilidade: <mark class="troque">Public</mark> · Add a README: <mark class="troque">desmarcado</mark> → <strong>Create repository</strong></li>
+                        <li><strong>uploading an existing file</strong> → arraste <mark class="troque">todo o conteúdo</mark> da pasta <code>starter-kit-snct</code> (index.html, css, img e README.md), não a pasta em si → <strong>Commit changes</strong></li>
+                        <li><strong>Settings</strong> → <strong>Pages</strong> → Deploy from a branch → <mark class="troque">main</mark> · <mark class="troque">/ (root)</mark> → <strong>Save</strong></li>
+                        <li>Aguarde 1 a 2 minutos e abra:<br><code class="url">https://SEU-USUARIO.github.io/meu-primeiro-site/</code></li>
+                    </ol>
                 </div>
-                <div class="col-lg-5 text-center">
-                    <img class="print-tela" src="img/print-github.png" alt="Print do GitHub com o repositório criado">
+                <div class="col-lg-4 text-center">
+                    <img class="print-tela" src="img/print-github.png" data-rotulo="o print"
+                        alt="Print do GitHub com o repositório criado">
                 </div>
             </div>
-            <p class="text-info fs-3 mt-3">Checkpoint: o index.html aparece direto na raiz do repositório.</p>
+            <p class="checkpoint"><strong>Checkpoint:</strong> index.html, css, img e README.md aparecem na raiz do repositório (o index.html não pode estar dentro de outra pasta). Site com erro 404? Espere mais um minuto e atualize com Ctrl+F5.</p>
         </section>
 
-        <!-- TELA 7 -->
-        <section class="slide" aria-label="Tela 7 de 8">
-            <div><span class="selo-bloco selo-bloco4"><i class="bi bi-qr-code" aria-hidden="true"></i> TELA 7 DE 8 ·</span></div>
-            <h2 class="display-5 fw-bold mt-3">Gere o QR Code e poste no Mural</h2>
+        <!-- TELA 7 · 95–110 min · Bloco 4 -->
+        <section class="slide" aria-label="Tela 7 de 8" data-inicio="95" data-fim="110">
+            <div><span class="selo-bloco selo-bloco4"><i class="bi bi-qr-code" aria-hidden="true"></i> TELA 7 DE 8 · BLOCO 4 · 95–110 MIN</span></div>
+            <h2 class="display-5 fw-bold mt-3">Gere o QR Code, teste no celular e poste no Mural</h2>
             <div class="row g-4 align-items-center mt-1">
                 <div class="col-lg-7">
-                    <pre class="codigo-telao">1. Copie a URL: https://<mark>usuario</mark>.github.io/<mark>meu-site</mark>/
-2. Gere o QR Code em um gerador online
-3. Teste lendo com o seu celular
-4. Poste o QR Code + link no Mural do Curso 1</pre>
-                    <p class="legenda"><mark class="troque">Amarelo</mark> = o que você troca.</p>
+                    <ol class="lista-passos">
+                        <li>Copie o endereço do seu site:<br><code class="url">https://<mark class="troque">SEU-USUARIO</mark>.github.io/<mark class="troque">meu-primeiro-site</mark>/</code></li>
+                        <li>Abra o <strong>gerador de QR Code</strong> indicado pelo instrutor, cole o endereço e baixe a imagem.</li>
+                        <li>Aponte a câmera do celular para o QR Code na tela e toque no link. Teste também o botão de WhatsApp.</li>
+                        <li>No Moodle: Sala do Curso 1 → <strong>Seção 3 (Bloco 3 e 4: No Ar!)</strong> → <strong>Mural</strong> → cole o endereço do seu site.</li>
+                    </ol>
                 </div>
                 <div class="col-lg-5 text-center">
-                    <img class="print-tela" src="img/print-qrcode.png" alt="Print do gerador de QR Code com a URL do site">
+                    <img class="print-tela" src="img/print-qrcode.png" data-rotulo="o print"
+                        alt="Print do gerador de QR Code com o endereço do site">
                 </div>
             </div>
-            <p class="text-info fs-3 mt-3">Checkpoint: o site abriu no celular com o seu conteúdo.</p>
+            <p class="checkpoint"><strong>Checkpoint:</strong> o seu site abriu no celular, com os seus textos e as suas cores, e o botão de WhatsApp abriu a conversa correta.</p>
         </section>
 
-        <!-- TELA 8 -->
-        <section class="slide" aria-label="Tela 8 de 8">
-            <div><span class="selo-bloco selo-pesquisa"><i class="bi bi-chat-heart" aria-hidden="true"></i> TELA 8 DE 8 ·</span></div>
+        <!-- TELA 8 · 110–120 min · Pesquisa de satisfação -->
+        <section class="slide" aria-label="Tela 8 de 8" data-inicio="110" data-fim="120">
+            <div><span class="selo-bloco selo-pesquisa"><i class="bi bi-chat-heart" aria-hidden="true"></i> TELA 8 DE 8 · PESQUISA · 110–120 MIN</span></div>
             <h2 class="display-5 fw-bold mt-3">Conta pra gente: pesquisa de satisfação</h2>
-            <p class="fs-3">Aponte o celular para o QR Code (Seção 4 do Moodle, Curso 1):</p>
-            <div class="text-center mt-3">
-                <img src="img/qr-pesquisa.png" alt="QR Code da pesquisa de satisfação"
-                    style="max-height: 50vh; max-width: 100%; background:#fff; padding:12px; border-radius:12px;">
+            <p class="mt-2">Na <strong>Seção 4 (Avaliação &amp; Certificado)</strong> do Moodle, responda às 3 perguntas rápidas, ou aponte o celular para o QR Code:</p>
+            <div class="text-center mt-2">
+                <img class="qr-pesquisa" src="img/qr-pesquisa.png" alt="QR Code da pesquisa de satisfação">
             </div>
+            <p class="checkpoint"><strong>Parabéns!</strong> Você publicou o seu primeiro site na internet.</p>
         </section>
     </main>
 
@@ -156,11 +195,19 @@
             aria-valuemin="1" aria-valuemax="8" aria-valuenow="1">
             <div id="progressoPreenchido" class="progresso-preenchido"></div>
         </div>
+
         <span id="indicadorTela" class="fw-bold" aria-live="polite">Tela 1 / 8</span>
+
+        <div class="cronometro" title="Tempo decorrido da oficina (recarregue a página para zerar)">
+            <i class="bi bi-stopwatch" aria-hidden="true"></i>
+            <span class="cronometro-rotulo">Tempo da oficina</span>
+            <span id="cronometroTempo" class="cronometro-tempo" role="timer" aria-live="off">00:00</span>
+        </div>
+
         <nav class="d-flex gap-2" aria-label="Navegação das telas">
-            <button class="btn btn-outline-light btn-lg" onclick="alternarTelaCheia()" aria-label="Alternar tela cheia" title="Tela cheia (F)"><i class="bi bi-fullscreen" aria-hidden="true"></i></button>
-            <button class="btn btn-outline-light btn-lg" onclick="mudarSlide(-1)">Anterior</button>
-            <button class="btn btn-success btn-lg" onclick="mudarSlide(1)">Próxima Tela</button>
+            <button class="btn btn-outline-light btn-lg" type="button" onclick="alternarTelaCheia()" aria-label="Alternar tela cheia" title="Tela cheia (F)"><i class="bi bi-fullscreen" aria-hidden="true"></i></button>
+            <button class="btn btn-outline-light btn-lg" type="button" onclick="mudarSlide(-1)">Anterior</button>
+            <button class="btn btn-success btn-lg" type="button" onclick="mudarSlide(1)">Próxima Tela</button>
         </nav>
     </footer>
 

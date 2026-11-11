@@ -2,10 +2,32 @@ const slides = Array.from(document.querySelectorAll('.slide'));
 const indicador = document.getElementById('indicadorTela');
 const barra = document.getElementById('barraProgresso');
 const preenchido = document.getElementById('progressoPreenchido');
+const cronTempo = document.getElementById('cronometroTempo');
 let indiceAtual = 0;
 
+/* ===== Cronômetro da oficina =====
+   Um relógio só: conta o tempo decorrido desde que a página foi aberta (00:00 em diante)
+   e não reinicia ao trocar de tela. Para zerar, recarregue a página (F5). */
+const inicioOficina = Date.now();
+
+function formatarTempo(ms) {
+    const segundos = Math.floor(ms / 1000);
+    const mm = String(Math.floor(segundos / 60)).padStart(2, '0');
+    const ss = String(segundos % 60).padStart(2, '0');
+    return `${mm}:${ss}`;
+}
+
+function atualizarCronometro() {
+    cronTempo.textContent = formatarTempo(Date.now() - inicioOficina);
+}
+
+setInterval(atualizarCronometro, 250);
+atualizarCronometro();
+
+/* ===== Navegação entre telas ===== */
 function irPara(novoIndice) {
     const limite = Math.max(0, Math.min(slides.length - 1, novoIndice));
+
     slides[indiceAtual].classList.remove('ativo');
     indiceAtual = limite;
     slides[indiceAtual].classList.add('ativo');
@@ -72,12 +94,13 @@ document.getElementById('telas').addEventListener('click', (ev) => {
     mudarSlide(1);
 });
 
-/* Prints: se a imagem não existir, mostra um espaço reservado com o nome do arquivo */
+/* Prints e QR Codes: se a imagem não existir, mostra um espaço reservado com o nome do arquivo */
 document.querySelectorAll('img.print-tela').forEach((img) => {
     const trocarPorPlaceholder = () => {
         const caixa = document.createElement('div');
         caixa.className = 'print-placeholder';
-        caixa.textContent = `Coloque aqui o print: ${img.getAttribute('src')}`;
+        const rotulo = img.dataset.rotulo || 'o print';
+        caixa.textContent = `Coloque aqui ${rotulo}: ${img.getAttribute('src')}`;
         img.replaceWith(caixa);
     };
     img.addEventListener('error', trocarPorPlaceholder);

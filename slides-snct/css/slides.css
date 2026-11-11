@@ -1,26 +1,48 @@
+/* ===== Variáveis de projeção (telão a 6 metros) =====
+   Regra do roteiro: texto >= 1.35rem (22px) e código >= 20px. */
+:root {
+    --fs-texto: clamp(1.35rem, min(1.6vw, 2.6vh), 1.7rem);
+    --fs-codigo: clamp(1.25rem, min(1.5vw, 2.4vh), 1.5rem);
+    --altura-rodape: 82px;
+}
+
 /* ===== Base ===== */
 body {
     background: #0f172a;
     color: #f8fafc;
-    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    font-size: var(--fs-texto);
     overflow: hidden;
+}
+
+code {
+    color: #38bdf8;
+    font-size: 0.95em;
+    background: rgba(56, 189, 248, 0.12);
+    padding: 0 6px;
+    border-radius: 4px;
 }
 
 /* ===== Telas ===== */
 .slide {
     display: none;
     position: relative;
-    height: calc(100vh - 82px);
-    padding: clamp(16px, 4vh, 48px) clamp(16px, 4vw, 64px);
+    height: calc(100vh - var(--altura-rodape));
+    height: calc(100dvh - var(--altura-rodape));
+    padding: clamp(12px, 3vh, 40px) clamp(16px, 4vw, 64px);
     overflow-y: auto;
 }
 
 .slide.ativo {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     animation: entrada-tela 0.3s ease;
 }
+
+/* Centraliza na vertical SEM cortar o topo quando o conteúdo é maior que a janela:
+   com "justify-content: center" o início da tela ficava fora do alcance da rolagem. */
+.slide.ativo > :first-child { margin-top: auto; }
+.slide.ativo > :last-child  { margin-bottom: auto; }
 
 @keyframes entrada-tela {
     from { opacity: 0; transform: translateY(8px); }
@@ -33,7 +55,20 @@ body {
 
 /* Títulos responsivos (sobrescrevem display-4 / display-5 do Bootstrap) */
 .slide h1.display-4 { font-size: clamp(2rem, 5vw, 3.5rem); }
-.slide h2.display-5 { font-size: clamp(1.6rem, 3.8vw, 2.8rem); }
+.slide h2.display-5 { font-size: clamp(1.7rem, 3.2vw, 2.6rem); margin-bottom: 0; }
+
+.subtitulo {
+    color: #38bdf8;
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
+}
+
+.caixa-meta {
+    margin-top: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: #0b1220;
+    border: 1px solid #16a34a;
+    border-radius: 1rem;
+}
 
 /* ===== Selo de bloco (cor por etapa) ===== */
 .selo-bloco {
@@ -45,7 +80,7 @@ body {
     padding: 6px 16px;
     border-radius: 999px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 1.35rem;
 }
 
 .selo-acolhida { background: #475569; }
@@ -57,19 +92,51 @@ body {
 .selo-bloco4   { background: #be185d; }
 .selo-pesquisa { background: #475569; }
 
+/* Endereço (URL) sempre inteiro numa linha só */
+code.url { white-space: nowrap; }
+
+/* ===== Passos numerados ===== */
+ol.lista-passos {
+    margin: 0;
+    padding: clamp(12px, 1.6vw, 22px) clamp(12px, 1.6vw, 22px) clamp(12px, 1.6vw, 22px) calc(clamp(12px, 1.6vw, 22px) + 1.9em);
+    background: #1e293b;
+    border-radius: 12px;
+}
+
+ol.lista-passos li {
+    margin: 0.3rem 0;
+    padding-left: 0.2rem;
+}
+
+ol.lista-passos li::marker {
+    color: #38bdf8;
+    font-weight: 700;
+}
+
 /* ===== Código ===== */
+.rotulo-codigo {
+    margin: 0.5rem 0 0.25rem;
+    color: #cbd5e1;
+    font-weight: 600;
+}
+
 pre.codigo-telao {
     background: #1e293b;
     color: #38bdf8;
-    padding: clamp(12px, 2vw, 24px);
+    padding: clamp(10px, 1.4vw, 20px);
     border-radius: 12px;
-    font-size: clamp(0.95rem, 1.7vw, 1.25rem);
-    max-height: 48vh;
+    font-size: var(--fs-codigo);
+    line-height: 1.35;
+    margin-bottom: 0.4rem;
+    max-height: 55vh;
     overflow: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 }
 
 /* Destaque do que o aluno troca */
 pre.codigo-telao mark,
+mark.troque,
 .troque {
     background: #fbbf24;
     color: #0f172a;
@@ -79,18 +146,43 @@ pre.codigo-telao mark,
 }
 
 .legenda {
-    font-size: 0.85rem;
+    font-size: var(--fs-texto);
     color: #cbd5e1;
-    margin-top: 8px;
+    margin: 0.4rem 0 0;
 }
 
-/* ===== Prints (imagem ou espaço reservado) ===== */
+/* Checkpoint de vitória de cada bloco */
+.checkpoint {
+    margin: 0.9rem 0 0;
+    padding: 0.55rem 1rem;
+    border-left: 6px solid #22c55e;
+    background: rgba(34, 197, 94, 0.12);
+    border-radius: 0 10px 10px 0;
+    font-size: var(--fs-texto);
+}
+
+.checkpoint strong { color: #4ade80; }
+
+/* ===== Prints e QR Codes (imagem ou espaço reservado) ===== */
 .print-tela {
     max-width: 100%;
-    max-height: 48vh;
+    max-height: 46vh;
     border-radius: 12px;
     border: 2px solid #334155;
     background: #fff;
+}
+
+.qr-grande {
+    max-height: 48vh;
+    padding: 12px;
+}
+
+.qr-pesquisa {
+    max-height: 42vh;
+    max-width: 100%;
+    background: #fff;
+    padding: 12px;
+    border-radius: 12px;
 }
 
 .print-placeholder {
@@ -103,13 +195,13 @@ pre.codigo-telao mark,
     border: 2px dashed #64748b;
     border-radius: 12px;
     color: #cbd5e1;
-    font-size: 1rem;
+    font-size: 1.35rem;
 }
 
-/* ===== Rodapé e progresso ===== */
+/* ===== Rodapé, progresso e cronômetro ===== */
 .barra-rodape {
     position: relative;
-    height: 82px;
+    height: var(--altura-rodape);
     background: #1e293b;
     padding: 6px 32px 0;
     display: flex;
@@ -134,6 +226,49 @@ pre.codigo-telao mark,
     transition: width 0.3s ease;
 }
 
+.cronometro {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-variant-numeric: tabular-nums;
+}
+
+.cronometro > .bi-stopwatch { font-size: 1.6rem; color: #94a3b8; }
+
+.cronometro-rotulo { color: #cbd5e1; font-size: 1.1rem; }
+
+.cronometro-tempo {
+    min-width: 6.5ch;
+    text-align: center;
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: #22c55e;
+}
+
+/* Telas de pouca altura (notebook / projetor 720p): economiza espaço vertical
+   sem diminuir as fontes, para as telas continuarem sem rolagem. */
+@media (max-height: 900px) {
+    .slide { padding-top: 4px; padding-bottom: 4px; }
+    ol.lista-passos { padding-top: 8px; padding-bottom: 8px; }
+    ol.lista-passos li { margin: 0.15rem 0; }
+    pre.codigo-telao { padding: 8px 14px; }
+    .checkpoint { margin-top: 0.5rem; padding: 0.35rem 0.8rem; }
+    .rotulo-codigo { margin: 0.25rem 0 0.15rem; }
+    .legenda { margin-top: 0.15rem; }
+    .slide h2.display-5 { line-height: 1.15; }
+}
+
+@media (max-height: 760px) {
+    pre.codigo-telao { line-height: 1.22; padding: 6px 12px; margin-bottom: 0.2rem; }
+    .selo-bloco { padding: 2px 14px; }
+    .slide h2.display-5 { font-size: clamp(1.5rem, 2.8vw, 2.2rem); }
+}
+
+@media (max-width: 992px) {
+    .cronometro-rotulo { display: none; }
+}
+
 @media (max-width: 768px) {
-    .barra-rodape { padding: 6px 12px 0; }
+    .barra-rodape { padding: 6px 12px 0; gap: 8px; }
+    .cronometro-tempo { font-size: 1.6rem; }
 }
