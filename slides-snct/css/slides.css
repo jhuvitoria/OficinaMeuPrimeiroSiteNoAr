@@ -41,21 +41,41 @@ code {
 
 /* Centraliza na vertical SEM cortar o topo quando o conteúdo é maior que a janela:
    com "justify-content: center" o início da tela ficava fora do alcance da rolagem. */
-.slide.ativo > :first-child { margin-top: auto; }
-.slide.ativo > :last-child  { margin-bottom: auto; }
+.slide.ativo> :first-child {
+    margin-top: auto;
+}
+
+.slide.ativo> :last-child {
+    margin-bottom: auto;
+}
 
 @keyframes entrada-tela {
-    from { opacity: 0; transform: translateY(8px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .slide.ativo { animation: none; }
+    .slide.ativo {
+        animation: none;
+    }
 }
 
 /* Títulos responsivos (sobrescrevem display-4 / display-5 do Bootstrap) */
-.slide h1.display-4 { font-size: clamp(2rem, 5vw, 3.5rem); }
-.slide h2.display-5 { font-size: clamp(1.7rem, 3.2vw, 2.6rem); margin-bottom: 0; }
+.slide h1.display-4 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+.slide h2.display-5 {
+    font-size: clamp(1.7rem, 3.2vw, 2.6rem);
+    margin-bottom: 0;
+}
 
 .subtitulo {
     color: #38bdf8;
@@ -83,17 +103,42 @@ code {
     font-size: 1.35rem;
 }
 
-.selo-acolhida { background: #475569; }
-.selo-moodle   { background: #1d4ed8; }
-.selo-bloco1   { background: #15803d; }
-.selo-bloco2a  { background: #0f766e; }
-.selo-bloco2b  { background: #7c3aed; }
-.selo-bloco3   { background: #c2410c; }
-.selo-bloco4   { background: #be185d; }
-.selo-pesquisa { background: #475569; }
+.selo-acolhida {
+    background: #475569;
+}
+
+.selo-moodle {
+    background: #1d4ed8;
+}
+
+.selo-bloco1 {
+    background: #15803d;
+}
+
+.selo-bloco2a {
+    background: #0f766e;
+}
+
+.selo-bloco2b {
+    background: #7c3aed;
+}
+
+.selo-bloco3 {
+    background: #c2410c;
+}
+
+.selo-bloco4 {
+    background: #be185d;
+}
+
+.selo-pesquisa {
+    background: #475569;
+}
 
 /* Endereço (URL) sempre inteiro numa linha só */
-code.url { white-space: nowrap; }
+code.url {
+    white-space: nowrap;
+}
 
 /* ===== Passos numerados ===== */
 ol.lista-passos {
@@ -161,7 +206,9 @@ mark.troque,
     font-size: var(--fs-texto);
 }
 
-.checkpoint strong { color: #4ade80; }
+.checkpoint strong {
+    color: #4ade80;
+}
 
 /* ===== Prints e QR Codes (imagem ou espaço reservado) ===== */
 .print-tela {
@@ -233,9 +280,15 @@ mark.troque,
     font-variant-numeric: tabular-nums;
 }
 
-.cronometro > .bi-stopwatch { font-size: 1.6rem; color: #94a3b8; }
+.cronometro>.bi-stopwatch {
+    font-size: 1.6rem;
+    color: #94a3b8;
+}
 
-.cronometro-rotulo { color: #cbd5e1; font-size: 1.1rem; }
+.cronometro-rotulo {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+}
 
 .cronometro-tempo {
     min-width: 6.5ch;
@@ -248,27 +301,76 @@ mark.troque,
 /* Telas de pouca altura (notebook / projetor 720p): economiza espaço vertical
    sem diminuir as fontes, para as telas continuarem sem rolagem. */
 @media (max-height: 900px) {
-    .slide { padding-top: 4px; padding-bottom: 4px; }
-    ol.lista-passos { padding-top: 8px; padding-bottom: 8px; }
-    ol.lista-passos li { margin: 0.15rem 0; }
-    pre.codigo-telao { padding: 8px 14px; }
-    .checkpoint { margin-top: 0.5rem; padding: 0.35rem 0.8rem; }
-    .rotulo-codigo { margin: 0.25rem 0 0.15rem; }
-    .legenda { margin-top: 0.15rem; }
-    .slide h2.display-5 { line-height: 1.15; }
+    .slide {
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    ol.lista-passos {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    ol.lista-passos li {
+        margin: 0.15rem 0;
+    }
+
+    pre.codigo-telao {
+        padding: 8px 14px;
+    }
+
+    .checkpoint {
+        margin-top: 0.5rem;
+        padding: 0.35rem 0.8rem;
+    }
+
+    .rotulo-codigo {
+        margin: 0.25rem 0 0.15rem;
+    }
+
+    .legenda {
+        margin-top: 0.15rem;
+    }
+
+    .slide h2.display-5 {
+        line-height: 1.15;
+    }
 }
 
 @media (max-height: 760px) {
-    pre.codigo-telao { line-height: 1.22; padding: 6px 12px; margin-bottom: 0.2rem; }
-    .selo-bloco { padding: 2px 14px; }
-    .slide h2.display-5 { font-size: clamp(1.5rem, 2.8vw, 2.2rem); }
+    pre.codigo-telao {
+        line-height: 1.22;
+        padding: 6px 12px;
+        margin-bottom: 0.2rem;
+    }
+
+    .selo-bloco {
+        padding: 2px 14px;
+    }
+
+    .slide h2.display-5 {
+        font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+    }
 }
 
 @media (max-width: 992px) {
-    .cronometro-rotulo { display: none; }
+    .cronometro-rotulo {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
-    .barra-rodape { padding: 6px 12px 0; gap: 8px; }
-    .cronometro-tempo { font-size: 1.6rem; }
+    .barra-rodape {
+        padding: 6px 12px 0;
+        gap: 8px;
+    }
+
+    .cronometro-tempo {
+        font-size: 1.6rem;
+    }
+}
+
+/* Foto alta (ex.: print de celular): pode ocupar mais altura que os prints normais */
+.print-tela.print-slide-5 {
+    max-height: 56vh;
 }
