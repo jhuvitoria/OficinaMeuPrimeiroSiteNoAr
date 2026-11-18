@@ -370,7 +370,21 @@ mark.troque,
     }
 }
 
-/* Foto alta (ex.: print de celular): pode ocupar mais altura que os prints normais */
-.print-tela.print-slide-5 {
-    max-height: 56vh;
+/* Dois prints, um em cima do outro (Tela 5) */
+.par-prints {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.par-prints .print-tela {
+    max-width: 100%;
+    max-height: 25vh;
+}
+
+.par-prints .print-placeholder {
+    width: 100%;
+    min-height: 18vh;
+    font-size: 1.1rem;
 }
