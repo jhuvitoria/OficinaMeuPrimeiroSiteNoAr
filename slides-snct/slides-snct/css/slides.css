@@ -1,0 +1,139 @@
+/* ===== Base ===== */
+body {
+    background: #0f172a;
+    color: #f8fafc;
+    font-size: clamp(1rem, 1.6vw, 1.4rem);
+    overflow: hidden;
+}
+
+/* ===== Telas ===== */
+.slide {
+    display: none;
+    position: relative;
+    height: calc(100vh - 82px);
+    padding: clamp(16px, 4vh, 48px) clamp(16px, 4vw, 64px);
+    overflow-y: auto;
+}
+
+.slide.ativo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: entrada-tela 0.3s ease;
+}
+
+@keyframes entrada-tela {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide.ativo { animation: none; }
+}
+
+/* Títulos responsivos (sobrescrevem display-4 / display-5 do Bootstrap) */
+.slide h1.display-4 { font-size: clamp(2rem, 5vw, 3.5rem); }
+.slide h2.display-5 { font-size: clamp(1.6rem, 3.8vw, 2.8rem); }
+
+/* ===== Selo de bloco (cor por etapa) ===== */
+.selo-bloco {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #16a34a;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.selo-acolhida { background: #475569; }
+.selo-moodle   { background: #1d4ed8; }
+.selo-bloco1   { background: #15803d; }
+.selo-bloco2a  { background: #0f766e; }
+.selo-bloco2b  { background: #7c3aed; }
+.selo-bloco3   { background: #c2410c; }
+.selo-bloco4   { background: #be185d; }
+.selo-pesquisa { background: #475569; }
+
+/* ===== Código ===== */
+pre.codigo-telao {
+    background: #1e293b;
+    color: #38bdf8;
+    padding: clamp(12px, 2vw, 24px);
+    border-radius: 12px;
+    font-size: clamp(0.95rem, 1.7vw, 1.25rem);
+    max-height: 48vh;
+    overflow: auto;
+}
+
+/* Destaque do que o aluno troca */
+pre.codigo-telao mark,
+.troque {
+    background: #fbbf24;
+    color: #0f172a;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-weight: 700;
+}
+
+.legenda {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    margin-top: 8px;
+}
+
+/* ===== Prints (imagem ou espaço reservado) ===== */
+.print-tela {
+    max-width: 100%;
+    max-height: 48vh;
+    border-radius: 12px;
+    border: 2px solid #334155;
+    background: #fff;
+}
+
+.print-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 220px;
+    padding: 16px;
+    border: 2px dashed #64748b;
+    border-radius: 12px;
+    color: #cbd5e1;
+    font-size: 1rem;
+}
+
+/* ===== Rodapé e progresso ===== */
+.barra-rodape {
+    position: relative;
+    height: 82px;
+    background: #1e293b;
+    padding: 6px 32px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.progresso {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: #334155;
+}
+
+.progresso-preenchido {
+    height: 100%;
+    width: 0;
+    background: #22c55e;
+    transition: width 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .barra-rodape { padding: 6px 12px 0; }
+}
